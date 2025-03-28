@@ -1,4 +1,5 @@
-import { StockQuote, Team, OptionChain, MarketNews, RiskMetrics, FantasyToken, UserWallet, TokenTransaction } from "@/types/market";
+
+import { StockQuote, Team, OptionChain, MarketNews, RiskMetrics, FantasyToken, UserWallet, TokenTransaction, SmartContractEvent } from "@/types/market";
 import { blockchainService } from "./blockchainService";
 
 // Mock API functions - in a real app, these would connect to real financial APIs
@@ -261,6 +262,55 @@ export const fetchUserWallet = async (address: string): Promise<UserWallet | nul
 
 export const fetchTokenTransactions = async (tokenId: string): Promise<TokenTransaction[]> => {
   return blockchainService.getTokenTransactions(tokenId);
+};
+
+export const fetchSmartContractEvents = async (tokenId: string): Promise<SmartContractEvent[]> => {
+  // Simulate API call
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  // Return mock smart contract events for the specified token
+  return [
+    {
+      id: "1",
+      timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+      eventName: "Transfer",
+      contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      blockNumber: 12345678,
+      tokenId
+    },
+    {
+      id: "2",
+      timestamp: new Date(Date.now() - 36 * 60 * 60 * 1000).toISOString(),
+      eventName: "Approval",
+      contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      blockNumber: 12345670,
+      tokenId
+    },
+    {
+      id: "3",
+      timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+      eventName: "Mint",
+      contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      blockNumber: 12345660,
+      tokenId
+    },
+    {
+      id: "4",
+      timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+      eventName: "Transfer",
+      contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      blockNumber: 12345650,
+      tokenId
+    },
+    {
+      id: "5",
+      timestamp: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+      eventName: "OwnershipTransferred",
+      contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      blockNumber: 12345600,
+      tokenId
+    }
+  ];
 };
 
 export const buyFantasyTokens = async (
