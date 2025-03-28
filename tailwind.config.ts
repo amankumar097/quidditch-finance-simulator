@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,18 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Gringotts theme colors
+				gringotts: {
+					gold: '#D4AF37',
+					darkGold: '#AA8C2C',
+					burgundy: '#800020',
+					emerald: '#046307',
+					navy: '#0A1128',
+					parchment: '#F2E8C9',
+					stone: '#707070',
+				},
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -63,6 +76,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+				wizarding: ['Georgia', 'serif'],
+				goblin: ['Palatino', 'serif'],
+				magical: ['Garamond', 'serif'],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -84,11 +102,25 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'golden-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 15px rgba(212, 175, 55, 0.5)',
+					},
+					'50%': {
+						boxShadow: '0 0 25px rgba(212, 175, 55, 0.8)',
+					},
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'golden-glow': 'golden-glow 2s ease-in-out infinite',
 			}
 		}
 	},
