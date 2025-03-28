@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { CircleDollarSign, ChartCandlestick, TrendingUp, Wallet, Shield } from "lucide-react";
+import { CircleDollarSign, ChartCandlestick, TrendingUp, Wallet, Shield, Coins } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
@@ -32,6 +32,11 @@ const Navigation = () => {
       name: "Seeker Risk", 
       icon: <Shield className="h-5 w-5" />, 
       path: "/risk" 
+    },
+    { 
+      name: "Fantasy Tokens", 
+      icon: <Coins className="h-5 w-5" />, 
+      path: "/blockchain" 
     }
   ];
 

@@ -9,6 +9,7 @@ import Market from "./pages/Market";
 import Options from "./pages/Options";
 import Portfolio from "./pages/Portfolio";
 import Risk from "./pages/Risk";
+import Blockchain from "./pages/Blockchain";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/options" element={<Options />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/risk" element={<Risk />} />
+          <Route path="/blockchain" element={<Blockchain />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

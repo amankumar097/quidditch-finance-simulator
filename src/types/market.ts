@@ -62,3 +62,55 @@ export type RiskMetrics = {
   maxDrawdown: number;
   valueAtRisk: number;
 };
+
+// Blockchain related types
+export type BlockchainNetwork = 'Ethereum' | 'Binance Smart Chain' | 'Polygon' | 'Solana' | 'Avalanche';
+
+export type FantasyToken = {
+  id: string;
+  teamId: string;
+  name: string;
+  symbol: string;
+  contractAddress: string;
+  network: BlockchainNetwork;
+  totalSupply: number;
+  circulatingSupply: number;
+  price: number;
+  change24h: number;
+  marketCap: number;
+  holders: number;
+};
+
+export type TokenTransaction = {
+  id: string;
+  tokenId: string;
+  fromAddress: string;
+  toAddress: string;
+  amount: number;
+  timestamp: string;
+  txHash: string;
+  status: 'pending' | 'confirmed' | 'failed';
+  network: BlockchainNetwork;
+};
+
+export type SmartContractEvent = {
+  id: string;
+  contractAddress: string;
+  eventName: string;
+  parameters: Record<string, any>;
+  blockNumber: number;
+  timestamp: string;
+  txHash: string;
+  network: BlockchainNetwork;
+};
+
+export type WalletBalance = {
+  tokenId: string;
+  balance: number;
+};
+
+export type UserWallet = {
+  address: string;
+  network: BlockchainNetwork;
+  balances: WalletBalance[];
+};

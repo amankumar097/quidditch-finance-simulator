@@ -1,5 +1,5 @@
-
-import { StockQuote, Team, OptionChain, MarketNews, RiskMetrics } from "@/types/market";
+import { StockQuote, Team, OptionChain, MarketNews, RiskMetrics, FantasyToken, UserWallet, TokenTransaction } from "@/types/market";
+import { blockchainService } from "./blockchainService";
 
 // Mock API functions - in a real app, these would connect to real financial APIs
 export const fetchStockQuotes = async (symbols: string[]): Promise<StockQuote[]> => {
@@ -243,6 +243,32 @@ export const fetchRiskMetrics = async (teamIds: string[]): Promise<Record<string
   });
   
   return result;
+};
+
+// Blockchain-related API functions
+export const fetchFantasyTokens = async (): Promise<FantasyToken[]> => {
+  return blockchainService.getFantasyTokens();
+};
+
+export const fetchTeamToken = async (teamId: string): Promise<FantasyToken | null> => {
+  const tokens = await blockchainService.getTokensByTeam(teamId);
+  return tokens.length > 0 ? tokens[0] : null;
+};
+
+export const fetchUserWallet = async (address: string): Promise<UserWallet | null> => {
+  return blockchainService.getUserWallet(address);
+};
+
+export const fetchTokenTransactions = async (tokenId: string): Promise<TokenTransaction[]> => {
+  return blockchainService.getTokenTransactions(tokenId);
+};
+
+export const buyFantasyTokens = async (
+  tokenId: string, 
+  amount: number, 
+  userAddress: string
+): Promise<TokenTransaction> => {
+  return blockchainService.buyTokens(tokenId, amount, userAddress);
 };
 
 // Utility function to get a base price for a symbol
