@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { OptionChain } from "@/types/market";
@@ -35,6 +35,8 @@ const OptionChainVisualizer: React.FC<OptionChainVisualizerProps> = ({
         <CardTitle className="text-xl font-wizarding">
           Bludger Attack Patterns for {symbol}
         </CardTitle>
+      </CardHeader>
+      <CardContent>
         <Tabs defaultValue="calls">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="calls" className="font-wizarding">Golden Bludgers (Calls)</TabsTrigger>
