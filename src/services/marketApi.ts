@@ -1,4 +1,3 @@
-
 import { StockQuote, Team, OptionChain, MarketNews, RiskMetrics, FantasyToken, UserWallet, TokenTransaction, SmartContractEvent } from "@/types/market";
 import { blockchainService } from "./blockchainService";
 
@@ -276,7 +275,14 @@ export const fetchSmartContractEvents = async (tokenId: string): Promise<SmartCo
       eventName: "Transfer",
       contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
       blockNumber: 12345678,
-      tokenId
+      tokenId,
+      txHash: "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+      network: "Ethereum",
+      parameters: {
+        from: "0xTeamTreasuryAddress",
+        to: "0xUserWalletAddress",
+        value: "5000000000000000000000"
+      }
     },
     {
       id: "2",
@@ -284,7 +290,14 @@ export const fetchSmartContractEvents = async (tokenId: string): Promise<SmartCo
       eventName: "Approval",
       contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
       blockNumber: 12345670,
-      tokenId
+      tokenId,
+      txHash: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+      network: "Ethereum",
+      parameters: {
+        owner: "0xUserWalletAddress",
+        spender: "0xDexContractAddress",
+        value: "1000000000000000000000"
+      }
     },
     {
       id: "3",
@@ -292,7 +305,13 @@ export const fetchSmartContractEvents = async (tokenId: string): Promise<SmartCo
       eventName: "Mint",
       contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
       blockNumber: 12345660,
-      tokenId
+      tokenId,
+      txHash: "0xaabbcc1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+      network: "Ethereum",
+      parameters: {
+        to: "0xTeamTreasuryAddress",
+        amount: "10000000000000000000000"
+      }
     },
     {
       id: "4",
@@ -300,7 +319,14 @@ export const fetchSmartContractEvents = async (tokenId: string): Promise<SmartCo
       eventName: "Transfer",
       contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
       blockNumber: 12345650,
-      tokenId
+      tokenId,
+      txHash: "0x9988771234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+      network: "Ethereum",
+      parameters: {
+        from: "0xPreviousOwner",
+        to: "0xTeamTreasuryAddress",
+        value: "2500000000000000000000"
+      }
     },
     {
       id: "5",
@@ -308,7 +334,13 @@ export const fetchSmartContractEvents = async (tokenId: string): Promise<SmartCo
       eventName: "OwnershipTransferred",
       contractAddress: "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
       blockNumber: 12345600,
-      tokenId
+      tokenId,
+      txHash: "0x5544331234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+      network: "Ethereum",
+      parameters: {
+        previousOwner: "0x0000000000000000000000000000000000000000",
+        newOwner: "0xContractDeployer"
+      }
     }
   ];
 };

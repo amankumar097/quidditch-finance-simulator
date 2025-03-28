@@ -97,11 +97,12 @@ export type SmartContractEvent = {
   id: string;
   contractAddress: string;
   eventName: string;
-  parameters: Record<string, any>;
+  parameters?: Record<string, any>;
   blockNumber: number;
   timestamp: string;
-  txHash: string;
-  network: BlockchainNetwork;
+  txHash?: string;
+  network?: BlockchainNetwork;
+  tokenId: string; // Added this property to fix the type error
 };
 
 export type WalletBalance = {
